@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,6 +105,121 @@
             line-height: 1.7;
         }
 
+        /* CLICKABLE STAFF CARDS */
+
+        .leadership-card {
+            cursor: pointer;
+        }
+
+        .leadership-card::after {
+            content: "VIEW PROFILE";
+            display: block;
+            margin-top: 20px;
+            color: #E8B7C8;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* PROFILE POPUP */
+
+        .profile-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(20, 3, 8, 0.88);
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .profile-modal.active {
+            display: flex;
+        }
+
+        .profile-box {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #3D0915;
+            border: 1px solid #D4AF6A;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            padding: 45px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 500px;
+            max-height: 500px;
+            object-fit: cover;
+            border: 1px solid #D4AF6A;
+            display: block;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+        }
+
+        .profile-image.hidden {
+            display: none;
+        }
+
+        .nobody-profile {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            padding: 70px 20px;
+            border: 1px solid #D4AF6A;
+            background: #681426;
+            color: #E8B7C8;
+            font-size: 18px;
+            letter-spacing: 3px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+        }
+
+        .nobody-profile.active {
+            display: block;
+        }
+
+        .profile-position {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            color: #D4AF6A;
+            font-size: 42px;
+            margin: 10px 0 20px;
+        }
+
+        .profile-description {
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .close-profile {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #D4AF6A;
+            font-size: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-profile:hover {
+            color: #E8B7C8;
+            transform: scale(1.1);
+        }
+
         .standard-section {
             max-width: 900px;
             margin: 70px auto 80px;
@@ -157,6 +271,18 @@
 
             .staff-card {
                 width: 75%;
+            }
+
+            .profile-box {
+                padding: 35px 20px;
+            }
+
+            .profile-name {
+                font-size: 34px;
+            }
+
+            .profile-image {
+                max-height: 400px;
             }
         }
     </style>
@@ -215,7 +341,13 @@
 
 <section class="staff-container">
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'images/owner1.png',
+            'OWNER',
+            'Maria',
+            'As the Owner of Château Lumière, Maria oversees the vision, identity and future of the Château. She is responsible for maintaining the highest standards of elegance, hospitality and excellence throughout the hotel.'
+         )">
 
         <h2>Owner</h2>
 
@@ -227,7 +359,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'images/owner2.png',
+            'CO-OWNER',
+            'Joanna',
+            'As Co-Owner of Château Lumière, Joanna works alongside the Owner to guide the Château, support its staff and maintain the exceptional standards that define the Lumière experience.'
+         )">
 
         <h2>Co-Owner</h2>
 
@@ -239,7 +377,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'images/owner3.png',
+            'EXECUTIVE DIRECTOR',
+            'Alexander',
+            'As Executive Director of Château Lumière, Alexander oversees the daily operations of the hotel and ensures that every department works efficiently, professionally and in harmony.'
+         )">
 
         <h2>Executive Director</h2>
 
@@ -251,7 +395,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'HEAD OF STAFF',
+            'Nobody',
+            'The Head of Staff oversees the entire hotel staff team, maintains workplace standards and ensures that all employees follow the rules and procedures of Château Lumière.'
+         )">
 
         <h2>Head of Staff</h2>
 
@@ -265,6 +415,38 @@
 </section>
 
 
+<!-- PROFILE POPUP -->
+
+<div class="profile-modal" id="profileModal">
+
+    <div class="profile-box">
+
+        <button class="close-profile" onclick="closeProfile()">
+            ×
+        </button>
+
+        <img
+            id="profileImage"
+            class="profile-image"
+            src=""
+            alt="Château Lumière Staff Member"
+        >
+
+        <div id="nobodyProfile" class="nobody-profile">
+            NOBODY
+        </div>
+
+        <div id="profilePosition" class="profile-position"></div>
+
+        <h2 id="profileName" class="profile-name"></h2>
+
+        <p id="profileDescription" class="profile-description"></p>
+
+    </div>
+
+</div>
+
+
 <!-- STAFF DEVELOPMENT -->
 
 <div class="staff-category">
@@ -273,7 +455,13 @@
 
 <section class="staff-container">
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'TRAINER',
+            'Nobody',
+            'The Trainer is responsible for preparing new and existing staff members for their roles. They teach hotel procedures, professional conduct and the standards expected at Château Lumière.'
+         )">
 
         <h2>Trainer</h2>
 
@@ -295,7 +483,13 @@
 
 <section class="staff-container">
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'RECEPTIONIST',
+            'Nobody',
+            'The Receptionist welcomes guests upon arrival, assists with reservations, answers questions and helps ensure that every guest receives a warm and professional welcome to Château Lumière.'
+         )">
 
         <h2>Receptionist</h2>
 
@@ -307,7 +501,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'CHEF',
+            'Nobody',
+            'The Chef is responsible for preparing the Château’s dining experience and maintaining high standards of food quality, presentation and service throughout breakfast, lunch and dinner.'
+         )">
 
         <h2>Chef</h2>
 
@@ -319,7 +519,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'WAITER / WAITRESS',
+            'Nobody',
+            'The Waiter or Waitress provides attentive table service, assists guests with their dining experience and ensures that the restaurant maintains the elegant and professional atmosphere of Château Lumière.'
+         )">
 
         <h2>Waiter/Waitress</h2>
 
@@ -331,7 +537,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'CHAUFFEUR',
+            'Nobody',
+            'The Chauffeur provides guests with comfortable and reliable transportation while representing Château Lumière with professionalism, courtesy and exceptional service.'
+         )">
 
         <h2>Chauffeur</h2>
 
@@ -353,7 +565,13 @@
 
 <section class="staff-container">
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'SECURITY',
+            'Nobody',
+            'Security is responsible for helping protect the Château, its guests and its staff. They monitor the hotel environment and help maintain a safe, orderly and professional atmosphere.'
+         )">
 
         <h2>Security</h2>
 
@@ -365,7 +583,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'HOUSEKEEPER',
+            'Nobody',
+            'The Housekeeper maintains guest rooms and ensures they are clean, comfortable and properly prepared. Their work helps maintain the elegant standards expected throughout Château Lumière.'
+         )">
 
         <h2>Housekeeper</h2>
 
@@ -377,7 +601,13 @@
     </div>
 
 
-    <div class="staff-card">
+    <div class="staff-card leadership-card"
+         onclick="openProfile(
+            'nobody',
+            'JANITOR',
+            'Nobody',
+            'The Janitor maintains the cleanliness and presentation of the Château’s public areas and facilities, helping ensure that the hotel remains immaculate and welcoming for guests.'
+         )">
 
         <h2>Janitor</h2>
 
@@ -525,6 +755,71 @@ window.addEventListener("beforeunload", function () {
         "chateauMusicTime",
         music.currentTime
     );
+
+});
+
+
+/* OPEN STAFF PROFILE */
+
+function openProfile(image, position, name, description) {
+
+    const profileImage = document.getElementById("profileImage");
+    const nobodyProfile = document.getElementById("nobodyProfile");
+
+    if (image === "nobody") {
+
+        profileImage.classList.add("hidden");
+        nobodyProfile.classList.add("active");
+
+    } else {
+
+        profileImage.classList.remove("hidden");
+        nobodyProfile.classList.remove("active");
+
+        profileImage.src = image;
+
+    }
+
+    document.getElementById("profilePosition").textContent = position;
+    document.getElementById("profileName").textContent = name;
+    document.getElementById("profileDescription").textContent = description;
+
+    document.getElementById("profileModal").classList.add("active");
+
+}
+
+
+/* CLOSE STAFF PROFILE */
+
+function closeProfile() {
+
+    document.getElementById("profileModal").classList.remove("active");
+
+}
+
+
+/* CLOSE WHEN CLICKING OUTSIDE THE PROFILE */
+
+document.getElementById("profileModal").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+
+        closeProfile();
+
+    }
+
+});
+
+
+/* CLOSE WITH ESCAPE KEY */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeProfile();
+
+    }
 
 });
 
