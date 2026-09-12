@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,9 +28,32 @@
             color: #E8B7C8;
         }
 
+        /* ================================
+           MAIN HERO WITH EXTERIOR IMAGE
+           ================================ */
+
         .hero {
+            position: relative;
+            min-height: 620px;
             padding: 100px 20px;
             border-bottom: 1px solid #D4AF6A;
+
+            background-image:
+                linear-gradient(
+                    rgba(61, 9, 21, 0.55),
+                    rgba(61, 9, 21, 0.72)
+                ),
+                url("images/exterior.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .hero .est {
@@ -45,6 +67,7 @@
             font-size: 60px;
             margin: 15px 0;
             letter-spacing: 3px;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
         }
 
         .hero h2 {
@@ -52,12 +75,14 @@
             font-size: 25px;
             font-weight: normal;
             letter-spacing: 3px;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
         }
 
         .hero p {
             font-size: 18px;
             font-style: italic;
             line-height: 1.7;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
         }
 
         .hero-button {
@@ -277,11 +302,105 @@
             background-color: #E8B7C8;
         }
 
+        /* ================================
+           HOTEL GALLERY
+           ================================ */
+
+        .hotel-gallery {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .hotel-gallery .section-label {
+            color: #D4AF6A;
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .hotel-gallery h2 {
+            font-size: 42px;
+            font-weight: normal;
+            margin: 0 0 15px;
+        }
+
+        .hotel-gallery > p {
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #E8B7C8;
+            line-height: 1.7;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #3D0915;
+            border: 1px solid #D4AF6A;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-large img {
+            height: 520px;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            text-align: left;
+            background: linear-gradient(
+                transparent,
+                rgba(61, 9, 21, 0.95)
+            );
+        }
+
+        .gallery-caption span {
+            color: #D4AF6A;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .gallery-caption h3 {
+            margin: 7px 0 0;
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        /* ================================
+           MOBILE
+           ================================ */
+
         @media (max-width: 700px) {
 
             .luxury-nav a {
                 display: inline-block;
                 margin: 8px 10px;
+            }
+
+            .hero {
+                min-height: 550px;
+                padding: 80px 20px;
             }
 
             .hero h1 {
@@ -298,6 +417,15 @@
 
             .enter-subtitle {
                 font-size: 14px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-large img,
+            .gallery-item img {
+                height: 350px;
             }
         }
     </style>
@@ -359,6 +487,10 @@
 </nav>
 
 
+<!-- =========================================
+     MAIN HERO
+     ========================================= -->
+
 <section class="hero">
 
     <div class="est">
@@ -390,6 +522,72 @@
         Every detail of your stay has been carefully designed to
         create an unforgettable experience.
     </p>
+
+</section>
+
+
+<section class="hotel-gallery">
+
+    <div class="section-label">THE CHÂTEAU</div>
+
+    <h2>Discover Château Lumière</h2>
+
+    <p>
+        Step inside a world of timeless elegance, refined comfort,
+        and unforgettable hospitality.
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="images/hotel1.png" alt="Château Lumière Reception">
+            <div class="gallery-caption">
+                <span>CHÂTEAU RECEPTION</span>
+                <h3>The Grand Foyer</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/hotel2.png" alt="Château Lumière Lounge A">
+            <div class="gallery-caption">
+                <span>CHÂTEAU LOUNGE</span>
+                <h3>Lumière Salon</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/hotel3.png" alt="Château Lounge B">
+            <div class="gallery-caption">
+                <span>CHÂTEAU LOUNGE</span>
+                <h3>The Château Salon</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/hotel4.png" alt="Château Lumière Pool">
+            <div class="gallery-caption">
+                <span>CHÂTEAU POOL</span>
+                <h3>The Pool Pavilion</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/hotel5.png" alt="Château Lumière Restaurant">
+            <div class="gallery-caption">
+                <span>ROYAL RESTAURANT</span>
+                <h3>Le Jardin Lumière</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/hotel6.png" alt="Château Lumière Garden">
+            <div class="gallery-caption">
+                <span>ROYAL GARDEN</span>
+                <h3>The Imperial Gardens</h3>
+            </div>
+        </div>
+
+    </div>
 
 </section>
 
@@ -547,10 +745,6 @@
 
 </footer>
 
-
-<audio id="backgroundMusic" loop>
-    <source src="audio/background.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 const music = document.getElementById("backgroundMusic");
