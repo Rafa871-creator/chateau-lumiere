@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rooms | Château Lumière</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .luxury-nav {
+            background-color: #3D0915;
+            padding: 22px 15px;
+            border-bottom: 2px solid #D4AF6A;
+        }
+
+        .luxury-nav a {
+            color: #D4AF6A;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .luxury-nav a:hover {
+            color: #E8B7C8;
+        }
+
+        .page-hero {
+            padding: 90px 20px 70px;
+            border-bottom: 1px solid #D4AF6A;
+        }
+
+        .eyebrow {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        .page-hero h1 {
+            color: #D4AF6A;
+            font-size: 55px;
+            margin: 15px 0;
+            letter-spacing: 2px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .rooms-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            padding: 70px 30px;
+            flex-wrap: wrap;
+        }
+
+        .room-card {
+            width: 280px;
+            padding: 35px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        .room-card.popular {
+            box-shadow: 0 0 25px rgba(212,175,106,0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #D4AF6A;
+            color: #3D0915;
+            padding: 7px 18px;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .room-card h2 {
+            color: #D4AF6A;
+            font-size: 27px;
+        }
+
+        .room-card p {
+            line-height: 1.7;
+        }
+
+        .room-features {
+            text-align: left;
+            padding-left: 0;
+            list-style: none;
+            line-height: 2;
+        }
+
+        .room-features li::before {
+            content: "— ";
+            color: #D4AF6A;
+            font-weight: bold;
+        }
+
+        .room-price {
+            color: #E8B7C8;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        .room-button {
+            display: inline-block;
+            background-color: #D4AF6A;
+            color: #3D0915;
+            text-decoration: none;
+            padding: 13px 20px;
+            margin: 5px 3px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .room-button:hover {
+            background-color: #E8B7C8;
+        }
+
+        footer {
+            margin-top: 0;
+        }
+
+        @media (max-width: 700px) {
+
+            .luxury-nav a {
+                display: inline-block;
+                margin: 8px 10px;
+            }
+
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+            .room-card {
+                width: 75%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="luxury-nav">
+
+    <a href="index.html">HOME</a>
+    <a href="rooms.html">ROOMS</a>
+    <a href="packages.html">PACKAGES</a>
+    <a href="radio.html">RADIO</a>
+    <a href="staff.html">STAFF</a>
+    <a href="reviews.html">REVIEWS</a>
+    <a href="booking.html">BOOK YOUR STAY</a>
+<a href="contact.html">CONTACT</a>
+
+</nav>
+
+
+<section class="page-hero">
+
+    <div class="eyebrow">
+        ACCOMMODATION
+    </div>
+
+    <h1>Our Rooms</h1>
+
+    <p>
+        Discover your perfect stay at Château Lumière.
+    </p>
+
+</section>
+
+
+<section class="rooms-container">
+
+
+    <div class="room-card">
+
+        <div class="eyebrow">
+            CHÂTEAU ESSENTIAL
+        </div>
+
+        <h2>Standard Room</h2>
+
+        <p>
+            Elegant comfort for guests seeking a refined and
+            memorable Château stay.
+        </p>
+
+        <ul class="room-features">
+            <li>Elegant accommodation</li>
+            <li>Comfortable sleeping area</li>
+            <li>Private guest facilities</li>
+            <li>Daily housekeeping</li>
+            <li>Château guest service</li>
+        </ul>
+
+        <div class="room-price">
+            $99 / night / person
+        </div>
+
+        <a href="standard.html" class="room-button">
+            VIEW ROOM
+        </a>
+
+        <a href="booking.html?room=standard" class="room-button">
+            RESERVE
+        </a>
+
+    </div>
+
+
+    <div class="room-card popular">
+
+        <div class="popular-badge">
+            MOST POPULAR
+        </div>
+
+        <div class="eyebrow">
+            CHÂTEAU SIGNATURE
+        </div>
+
+        <h2>Plus Room</h2>
+
+        <p>
+            More space, enhanced comfort and an elevated
+            Château experience.
+        </p>
+
+        <ul class="room-features">
+            <li>Spacious accommodation</li>
+            <li>Enhanced comfort</li>
+            <li>Elegant interior</li>
+            <li>Daily housekeeping</li>
+            <li>Premium guest service</li>
+        </ul>
+
+        <div class="room-price">
+            $199 / night / person
+        </div>
+
+        <a href="plus.html" class="room-button">
+            VIEW ROOM
+        </a>
+
+        <a href="booking.html?room=plus" class="room-button">
+            RESERVE
+        </a>
+
+    </div>
+
+
+    <div class="room-card">
+
+        <div class="eyebrow">
+            CHÂTEAU ROYAL
+        </div>
+
+        <h2>VIP Room</h2>
+
+        <p>
+            The most exclusive accommodation at Château Lumière,
+            designed for the ultimate royal experience.
+        </p>
+
+        <ul class="room-features">
+            <li>Exclusive VIP accommodation</li>
+            <li>Exceptional comfort</li>
+            <li>Elegant royal atmosphere</li>
+            <li>Daily housekeeping</li>
+            <li>VIP Château service</li>
+        </ul>
+
+        <div class="room-price">
+            $399 / night / person
+        </div>
+
+        <a href="vip.html" class="room-button">
+            VIEW ROOM
+        </a>
+
+        <a href="booking.html?room=vip" class="room-button">
+            RESERVE
+        </a>
+
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    <p>
+        <strong>CHÂTEAU LUMIÈRE</strong>
+    </p>
+
+    <p>
+        Luxury • Elegance • Service
+    </p>
+
+    <p>
+        © 2026 Château Lumière
+    </p>
+
+</footer>
+
+<audio id="backgroundMusic" loop>
+    <source src="audio/background.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+const savedTime = localStorage.getItem("chateauMusicTime");
+const musicStarted = localStorage.getItem("chateauMusicStarted");
+
+/* Restore the exact position */
+if (savedTime) {
+    music.addEventListener("loadedmetadata", function () {
+        music.currentTime = parseFloat(savedTime);
+    }, { once: true });
+}
+
+/* If music was already started on the Home page,
+   try to continue it automatically */
+if (musicStarted === "true") {
+    music.play().catch(() => {
+        /*
+        The browser may still block autoplay.
+        This normally only happens if the user has not
+        interacted with the website yet.
+        */
+    });
+}
+
+/* Save the current position */
+music.addEventListener("timeupdate", function () {
+    localStorage.setItem(
+        "chateauMusicTime",
+        music.currentTime
+    );
+});
+
+/* Save position before leaving */
+window.addEventListener("beforeunload", function () {
+    localStorage.setItem(
+        "chateauMusicTime",
+        music.currentTime
+    );
+});
+</script>
+
+</body>
+</html>
+

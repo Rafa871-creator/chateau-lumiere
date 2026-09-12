@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Stay | Château Lumière</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .luxury-nav {
+            background-color: #3D0915;
+            padding: 22px 15px;
+            border-bottom: 2px solid #D4AF6A;
+        }
+
+        .luxury-nav a {
+            color: #D4AF6A;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .luxury-nav a:hover {
+            color: #E8B7C8;
+        }
+
+        .page-hero {
+            padding: 90px 20px 70px;
+            border-bottom: 1px solid #D4AF6A;
+        }
+
+        .eyebrow {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        .page-hero h1 {
+            color: #D4AF6A;
+            font-size: 55px;
+            margin: 15px 0;
+            letter-spacing: 2px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .booking-container {
+            max-width: 850px;
+            margin: 60px auto;
+            padding: 45px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+            text-align: left;
+        }
+
+        .booking-container h2 {
+            color: #D4AF6A;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #E8B7C8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-bottom: 9px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            background-color: #5A0F20;
+            color: #F7F1E5;
+            border: 1px solid #D4AF6A;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #E8B7C8;
+        }
+
+        .booking-button {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #D4AF6A;
+            color: #3D0915;
+            border: none;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .booking-button:hover {
+            background-color: #E8B7C8;
+        }
+
+        .price-box {
+            margin-top: 35px;
+            padding: 25px;
+            border-top: 1px solid #D4AF6A;
+            border-bottom: 1px solid #D4AF6A;
+            text-align: center;
+        }
+
+        .price-box h3 {
+            color: #E8B7C8;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        .total-price {
+            color: #D4AF6A;
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .confirmation {
+            display: none;
+            max-width: 850px;
+            margin: 0 auto 70px;
+            padding: 45px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+        }
+
+        .confirmation h2 {
+            color: #D4AF6A;
+        }
+
+        .confirmation p {
+            line-height: 1.8;
+        }
+
+        .confirmation .success {
+            color: #E8B7C8;
+            font-style: italic;
+        }
+
+        .demo-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #E8B7C8;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 70px;
+        }
+
+        @media (max-width: 700px) {
+
+            .luxury-nav a {
+                display: inline-block;
+                margin: 8px 10px;
+            }
+
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+            .booking-container,
+            .confirmation {
+                width: 80%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="luxury-nav">
+
+    <a href="index.html">HOME</a>
+    <a href="rooms.html">ROOMS</a>
+    <a href="packages.html">PACKAGES</a>
+    <a href="radio.html">RADIO</a>
+    <a href="staff.html">STAFF</a>
+    <a href="reviews.html">REVIEWS</a>
+    <a href="booking.html">BOOK YOUR STAY</a>
+<a href="contact.html">CONTACT</a>
+
+</nav>
+
+
+<section class="page-hero">
+
+    <div class="eyebrow">
+        RESERVATIONS
+    </div>
+
+    <h1>Book Your Stay</h1>
+
+    <p>
+        Reserve your experience at Château Lumière.
+    </p>
+
+</section>
+
+
+<section class="booking-container">
+
+    <h2>Your Reservation</h2>
+
+    <form id="bookingForm">
+
+        <div class="form-group">
+
+            <label for="room">
+                ROOM
+            </label>
+
+            <select id="room" required>
+
+                <option value="standard">
+                    Standard Room — $99 / night / person
+                </option>
+
+                <option value="plus">
+                    Plus Room — $199 / night / person
+                </option>
+
+                <option value="vip">
+                    VIP Room — $399 / night / person
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="dining">
+                DINING
+            </label>
+
+            <select id="dining" required>
+
+                <option value="none">
+                    No Full Dining — Included
+                </option>
+
+                <option value="full">
+                    Full Dining — +$10 / night / person
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="checkin">
+                CHECK-IN
+            </label>
+
+            <input
+                type="date"
+                id="checkin"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="checkout">
+                CHECK-OUT
+            </label>
+
+            <input
+                type="date"
+                id="checkout"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="guests">
+                NUMBER OF GUESTS
+            </label>
+
+            <input
+                type="number"
+                id="guests"
+                min="1"
+                max="10"
+                value="1"
+                required
+            >
+
+        </div>
+
+
+        <div class="price-box">
+
+            <h3>
+                ESTIMATED TOTAL
+            </h3>
+
+            <div class="total-price" id="totalPrice">
+                $99
+            </div>
+
+        </div>
+
+
+        <button type="submit" class="booking-button">
+            CONFIRM RESERVATION
+        </button>
+
+    </form>
+
+    <div class="demo-note">
+        Château Lumière reservations are currently a website demonstration.
+    </div>
+
+</section>
+
+
+<section class="confirmation" id="confirmation">
+
+    <h2>Reservation Received</h2>
+
+    <p class="success">
+        Your Château Lumière reservation has been prepared successfully.
+    </p>
+
+    <p id="confirmationDetails"></p>
+
+</section>
+
+
+<footer>
+
+    <p>
+        <strong>CHÂTEAU LUMIÈRE</strong>
+    </p>
+
+    <p>
+        Luxury • Elegance • Service
+    </p>
+
+    <p>
+        © 2026 Château Lumière
+    </p>
+
+</footer>
+
+
+<script>
+
+    const roomPrices = {
+        standard: 99,
+        plus: 199,
+        vip: 399
+    };
+
+    const diningPrices = {
+        none: 0,
+        full: 10
+    };
+
+
+    const room = document.getElementById("room");
+    const dining = document.getElementById("dining");
+    const checkin = document.getElementById("checkin");
+    const checkout = document.getElementById("checkout");
+    const guests = document.getElementById("guests");
+    const totalPrice = document.getElementById("totalPrice");
+
+    const bookingForm = document.getElementById("bookingForm");
+    const confirmation = document.getElementById("confirmation");
+    const confirmationDetails = document.getElementById("confirmationDetails");
+
+
+    function getToday() {
+
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const day = String(today.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+
+    }
+
+
+    checkin.min = getToday();
+    checkout.min = getToday();
+
+
+    function updateCheckoutMinimum() {
+
+        if (checkin.value) {
+            checkout.min = checkin.value;
+
+            if (checkout.value && checkout.value < checkin.value) {
+                checkout.value = "";
+            }
+        }
+
+    }
+
+
+    function calculateTotal() {
+
+        const roomPrice = roomPrices[room.value];
+        const diningPrice = diningPrices[dining.value];
+        const numberOfGuests = Number(guests.value);
+
+        let nights = 1;
+
+        if (checkin.value && checkout.value) {
+
+            const start = new Date(checkin.value);
+            const end = new Date(checkout.value);
+
+            const difference = end - start;
+
+            nights = Math.ceil(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+            if (nights < 1) {
+                nights = 1;
+            }
+
+        }
+
+        const total =
+            (roomPrice + diningPrice) *
+            numberOfGuests *
+            nights;
+
+        totalPrice.textContent =
+            "$" + total.toLocaleString();
+
+    }
+
+
+    room.addEventListener("change", calculateTotal);
+    dining.addEventListener("change", calculateTotal);
+    checkin.addEventListener("change", function() {
+
+        updateCheckoutMinimum();
+        calculateTotal();
+
+    });
+
+    checkout.addEventListener("change", calculateTotal);
+    guests.addEventListener("input", calculateTotal);
+
+
+    bookingForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        if (!checkin.value || !checkout.value) {
+            return;
+        }
+
+        const start = new Date(checkin.value);
+        const end = new Date(checkout.value);
+
+        const difference = end - start;
+
+        const nights = Math.ceil(
+            difference / (1000 * 60 * 60 * 24)
+        );
+
+        if (nights < 1) {
+            alert("Check-out must be after check-in.");
+            return;
+        }
+
+
+        const roomName =
+            room.options[room.selectedIndex].text.split(" — ")[0];
+
+        const diningName =
+            dining.value === "full"
+                ? "Full Dining"
+                : "No Full Dining";
+
+        const numberOfGuests =
+            Number(guests.value);
+
+
+        const roomPrice = roomPrices[room.value];
+        const diningPrice = diningPrices[dining.value];
+
+        const total =
+            (roomPrice + diningPrice) *
+            numberOfGuests *
+            nights;
+
+
+        confirmationDetails.innerHTML =
+            "<strong>Room:</strong> " + roomName + "<br>" +
+            "<strong>Dining:</strong> " + diningName + "<br>" +
+            "<strong>Guests:</strong> " + numberOfGuests + "<br>" +
+            "<strong>Nights:</strong> " + nights + "<br>" +
+            "<strong>Total:</strong> $" +
+            total.toLocaleString();
+
+
+        confirmation.style.display = "block";
+
+        confirmation.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const selectedRoom =
+        params.get("room");
+
+    const selectedDining =
+        params.get("dining");
+
+
+    if (
+        selectedRoom &&
+        roomPrices[selectedRoom]
+    ) {
+
+        room.value = selectedRoom;
+
+    }
+
+
+    if (
+        selectedDining &&
+        diningPrices[selectedDining] !== undefined
+    ) {
+
+        dining.value = selectedDining;
+
+    }
+
+
+    calculateTotal();
+
+</script>
+<audio id="backgroundMusic" loop>
+    <source src="audio/background.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+const savedTime = localStorage.getItem("chateauMusicTime");
+const musicStarted = localStorage.getItem("chateauMusicStarted");
+
+/* Restore the exact position */
+if (savedTime) {
+    music.addEventListener("loadedmetadata", function () {
+        music.currentTime = parseFloat(savedTime);
+    }, { once: true });
+}
+
+/* If music was already started on the Home page,
+   try to continue it automatically */
+if (musicStarted === "true") {
+    music.play().catch(() => {
+        /*
+        The browser may still block autoplay.
+        This normally only happens if the user has not
+        interacted with the website yet.
+        */
+    });
+}
+
+/* Save the current position */
+music.addEventListener("timeupdate", function () {
+    localStorage.setItem(
+        "chateauMusicTime",
+        music.currentTime
+    );
+});
+
+/* Save position before leaving */
+window.addEventListener("beforeunload", function () {
+    localStorage.setItem(
+        "chateauMusicTime",
+        music.currentTime
+    );
+});
+</script>
+
+</body>
+</html>
+

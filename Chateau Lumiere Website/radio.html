@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Radio Lumière | Château Lumière</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .radio-hero {
+            padding: 80px 20px 45px;
+            border-bottom: 1px solid #D4AF6A;
+        }
+
+        .radio-hero .eyebrow {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        .radio-hero h1 {
+            color: #D4AF6A;
+            font-size: 52px;
+            margin: 15px 0;
+        }
+
+        .radio-hero p {
+            font-style: italic;
+        }
+
+        .radio-player {
+            max-width: 750px;
+            margin: 55px auto;
+            padding: 45px 25px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+        }
+
+        .record {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: repeating-radial-gradient(
+                circle,
+                #111 0px,
+                #111 4px,
+                #181818 5px,
+                #111 8px
+            );
+            margin: 0 auto 35px;
+            border: 5px solid #222;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .record.playing {
+            animation: spin 4s linear infinite;
+        }
+
+        .record-label {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background-color: #D4AF6A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3D0915;
+            font-size: 10px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .now-playing {
+            color: #D4AF6A;
+            font-size: 25px;
+            margin: 15px 0 5px;
+        }
+
+        .channel-name {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .controls {
+            margin-top: 30px;
+        }
+
+        .controls button {
+            margin: 6px;
+        }
+
+        .volume {
+            margin-top: 20px;
+        }
+
+        .volume input {
+            width: 180px;
+            accent-color: #D4AF6A;
+        }
+
+        .channels {
+            max-width: 900px;
+            margin: 70px auto;
+            padding: 0 25px;
+        }
+
+        .channels h2 {
+            color: #D4AF6A;
+            font-size: 32px;
+        }
+
+        .channel-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .channel-card {
+            width: 220px;
+            padding: 25px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .channel-card:hover,
+        .channel-card.active {
+            transform: translateY(-5px);
+            background-color: #74172B;
+        }
+
+        .channel-card h3 {
+            color: #D4AF6A;
+        }
+
+        .channel-card p {
+            color: #E8B7C8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .radio-hero h1 {
+                font-size: 42px;
+            }
+
+            .record {
+                width: 210px;
+                height: 210px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="rooms.html">ROOMS</a>
+    <a href="packages.html">PACKAGES</a>
+    <a href="radio.html">RADIO</a>
+    <a href="staff.html">STAFF</a>
+    <a href="reviews.html">REVIEWS</a>
+    <a href="booking.html">BOOK YOUR STAY</a>
+<a href="contact.html">CONTACT</a>
+</nav>
+
+<section class="radio-hero">
+
+    <div class="eyebrow">CHÂTEAU LUMIÈRE BROADCAST</div>
+
+    <h1>Radio Lumière</h1>
+
+    <p>
+        Music for the atmosphere of the Château.
+    </p>
+
+</section>
+
+<section class="radio-player">
+
+    <div class="record" id="record">
+
+        <div class="record-label">
+            LUMIÈRE
+        </div>
+
+    </div>
+
+    <div class="now-playing" id="songTitle">
+        Radio Lumière
+    </div>
+
+    <div class="channel-name" id="channelTitle">
+        CHÂTEAU LUMIÈRE • CHANNEL 01
+    </div>
+
+    <div class="controls">
+
+        <button onclick="previousSong()">
+            PREVIOUS
+        </button>
+
+        <button onclick="togglePlay()" id="playButton">
+            PLAY
+        </button>
+
+        <button onclick="nextSong()">
+            NEXT
+        </button>
+
+    </div>
+
+    <div class="volume">
+
+        <label>
+            VOLUME
+        </label>
+
+        <br>
+
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
+        >
+
+    </div>
+
+</section>
+
+<section class="channels">
+
+    <h2>Our Channels</h2>
+
+    <div class="channel-grid">
+
+        <div
+            class="channel-card active"
+            onclick="selectChannel(0)"
+        >
+            <h3>Radio Lumière</h3>
+            <p>CHÂTEAU LUMIÈRE • CHANNEL 01</p>
+        </div>
+
+        <div
+            class="channel-card"
+            onclick="selectChannel(1)"
+        >
+            <h3>Lumière Lounge</h3>
+            <p>LUMIÈRE LOUNGE • CHANNEL 02</p>
+        </div>
+
+        <div
+            class="channel-card"
+            onclick="selectChannel(2)"
+        >
+            <h3>Le Soir</h3>
+            <p>LE SOIR • CHANNEL 03</p>
+        </div>
+
+        <div class="channel-card">
+
+            <h3>Grand Piano</h3>
+
+            <p>
+                GRAND PIANO • CHANNEL 04
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p><strong>CHÂTEAU LUMIÈRE</strong></p>
+
+    <p>Luxury • Elegance • Service</p>
+
+    <p>© 2026 Château Lumière</p>
+
+</footer>
+
+<audio id="radioAudio" src="audio/radio1.mp3"></audio>
+
+<script>
+
+const songs = [
+
+    {
+        file: "audio/radio1.mp3",
+        title: "Radio Lumière",
+        channel: "CHÂTEAU LUMIÈRE • CHANNEL 01"
+    },
+
+    {
+        file: "audio/radio2.mp3",
+        title: "Lumière Lounge",
+        channel: "LUMIÈRE LOUNGE • CHANNEL 02"
+    },
+
+    {
+        file: "audio/radio3.mp3",
+        title: "Le Soir",
+        channel: "LE SOIR • CHANNEL 03"
+    }
+
+];
+
+let currentSong = 0;
+
+const audio =
+    document.getElementById("radioAudio");
+
+const record =
+    document.getElementById("record");
+
+const playButton =
+    document.getElementById("playButton");
+
+const songTitle =
+    document.getElementById("songTitle");
+
+const channelTitle =
+    document.getElementById("channelTitle");
+
+const volumeControl =
+    document.getElementById("volumeControl");
+
+
+audio.volume = 0.5;
+
+
+function loadSong(index) {
+
+    currentSong = index;
+
+    audio.src = songs[currentSong].file;
+
+    songTitle.textContent =
+        songs[currentSong].title;
+
+    channelTitle.textContent =
+        songs[currentSong].channel;
+
+    document
+        .querySelectorAll(".channel-card")
+        .forEach(card => card.classList.remove("active"));
+
+    const cards =
+        document.querySelectorAll(".channel-card");
+
+    if (cards[currentSong]) {
+        cards[currentSong].classList.add("active");
+    }
+
+}
+
+
+function togglePlay() {
+
+    if (audio.paused) {
+
+        audio.play();
+
+        playButton.textContent = "PAUSE";
+
+        record.classList.add("playing");
+
+    } else {
+
+        audio.pause();
+
+        playButton.textContent = "PLAY";
+
+        record.classList.remove("playing");
+
+    }
+
+}
+
+
+function nextSong() {
+
+    currentSong++;
+
+    if (currentSong >= songs.length) {
+        currentSong = 0;
+    }
+
+    loadSong(currentSong);
+
+    audio.play();
+
+    playButton.textContent = "PAUSE";
+
+    record.classList.add("playing");
+
+}
+
+
+function previousSong() {
+
+    currentSong--;
+
+    if (currentSong < 0) {
+        currentSong = songs.length - 1;
+    }
+
+    loadSong(currentSong);
+
+    audio.play();
+
+    playButton.textContent = "PAUSE";
+
+    record.classList.add("playing");
+
+}
+
+
+function selectChannel(index) {
+
+    loadSong(index);
+
+    audio.play();
+
+    playButton.textContent = "PAUSE";
+
+    record.classList.add("playing");
+
+}
+
+
+volumeControl.addEventListener(
+    "input",
+    function() {
+
+        audio.volume =
+            volumeControl.value;
+
+    }
+);
+
+
+audio.addEventListener(
+    "ended",
+    function() {
+
+        nextSong();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+

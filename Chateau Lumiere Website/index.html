@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Château Lumière | Luxury Hotel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .luxury-nav {
+            background-color: #3D0915;
+            padding: 22px 15px;
+            border-bottom: 2px solid #D4AF6A;
+        }
+
+        .luxury-nav a {
+            color: #D4AF6A;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .luxury-nav a:hover {
+            color: #E8B7C8;
+        }
+
+        .hero {
+            padding: 100px 20px;
+            border-bottom: 1px solid #D4AF6A;
+        }
+
+        .hero .est {
+            color: #E8B7C8;
+            font-size: 13px;
+            letter-spacing: 4px;
+        }
+
+        .hero h1 {
+            color: #D4AF6A;
+            font-size: 60px;
+            margin: 15px 0;
+            letter-spacing: 3px;
+        }
+
+        .hero h2 {
+            color: #E8B7C8;
+            font-size: 25px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 25px;
+            background-color: #D4AF6A;
+            color: #3D0915;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background-color: #E8B7C8;
+        }
+
+        .welcome {
+            max-width: 800px;
+            margin: 70px auto;
+            padding: 0 25px;
+        }
+
+        .welcome h2 {
+            color: #D4AF6A;
+            font-size: 32px;
+        }
+
+        .welcome p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .experience {
+            padding: 50px 25px;
+        }
+
+        .experience h2 {
+            color: #D4AF6A;
+            font-size: 32px;
+        }
+
+        .highlights {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            padding: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlights div {
+            width: 230px;
+            padding: 30px;
+            border: 1px solid #D4AF6A;
+            background-color: #681426;
+        }
+
+        .highlights h3 {
+            color: #D4AF6A;
+            font-size: 21px;
+        }
+
+        .highlights p {
+            line-height: 1.7;
+        }
+
+        .rooms-preview {
+            padding: 60px 25px;
+        }
+
+        .rooms-preview h2 {
+            color: #D4AF6A;
+            font-size: 32px;
+        }
+
+        .rooms-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        .room-card {
+            width: 260px;
+            padding: 30px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+            transition: 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        .room-card h3 {
+            color: #D4AF6A;
+            font-size: 24px;
+        }
+
+        .room-card p {
+            line-height: 1.7;
+        }
+
+        .room-price {
+            color: #E8B7C8;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .room-button {
+            display: inline-block;
+            padding: 12px 18px;
+            background-color: #D4AF6A;
+            color: #3D0915;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .room-button:hover {
+            background-color: #E8B7C8;
+        }
+
+        .final-cta {
+            padding: 80px 20px;
+            border-top: 1px solid #D4AF6A;
+        }
+
+        .final-cta h2 {
+            color: #D4AF6A;
+            font-size: 34px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        footer {
+            margin-top: 0;
+        }
+
+        /* ================================
+           CHÂTEAU LUMIÈRE ENTER SCREEN
+           ================================ */
+
+        #enterScreen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: #3D0915;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #enterScreen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .enter-content {
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        .enter-est {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        .enter-title {
+            color: #D4AF6A;
+            font-size: 52px;
+            letter-spacing: 4px;
+            margin: 0 0 12px;
+        }
+
+        .enter-subtitle {
+            color: #E8B7C8;
+            font-size: 17px;
+            letter-spacing: 4px;
+            margin-bottom: 45px;
+        }
+
+        .enter-line {
+            width: 100px;
+            height: 1px;
+            background-color: #D4AF6A;
+            margin: 0 auto 35px;
+        }
+
+        #enterButton {
+            padding: 16px 35px;
+            background-color: #D4AF6A;
+            color: #3D0915;
+            border: none;
+            cursor: pointer;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            transition: 0.3s;
+        }
+
+        #enterButton:hover {
+            background-color: #E8B7C8;
+        }
+
+        @media (max-width: 700px) {
+
+            .luxury-nav a {
+                display: inline-block;
+                margin: 8px 10px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .enter-title {
+                font-size: 38px;
+            }
+
+            .enter-subtitle {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================
+     ENTER CHÂTEAU LUMIÈRE SCREEN
+     ========================================= -->
+
+<div id="enterScreen">
+
+    <div class="enter-content">
+
+        <div class="enter-est">
+            EST. 2026
+        </div>
+
+        <h1 class="enter-title">
+            Château Lumière
+        </h1>
+
+        <div class="enter-line"></div>
+
+        <div class="enter-subtitle">
+            LUXURY HOTEL & RESORT
+        </div>
+
+        <button id="enterButton">
+            ENTER THE CHÂTEAU
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     BACKGROUND MUSIC
+     ========================================= -->
+
+<audio id="backgroundMusic" loop>
+    <source src="audio/background.mp3" type="audio/mpeg">
+</audio>
+
+
+<nav class="luxury-nav">
+
+    <a href="index.html">HOME</a>
+    <a href="rooms.html">ROOMS</a>
+    <a href="packages.html">PACKAGES</a>
+    <a href="radio.html">RADIO</a>
+    <a href="staff.html">STAFF</a>
+    <a href="reviews.html">REVIEWS</a>
+    <a href="booking.html">BOOK YOUR STAY</a>
+    <a href="contact.html">CONTACT</a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="est">
+        EST. 2026
+    </div>
+
+    <h1>Château Lumière</h1>
+
+    <h2>LUXURY HOTEL & RESORT</h2>
+
+    <p>
+        Where timeless elegance meets extraordinary hospitality.
+    </p>
+
+    <a href="booking.html" class="hero-button">
+        RESERVE YOUR STAY
+    </a>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>A World of Elegance</h2>
+
+    <p>
+        Welcome to Château Lumière, a destination created for those
+        who appreciate luxury, elegance and exceptional service.
+        Every detail of your stay has been carefully designed to
+        create an unforgettable experience.
+    </p>
+
+</section>
+
+
+<section class="experience">
+
+    <h2>The Château Experience</h2>
+
+    <div class="highlights">
+
+        <div>
+            <h3>Luxury Rooms</h3>
+            <p>
+                Elegant rooms designed for comfort, relaxation and
+                an unforgettable stay.
+            </p>
+        </div>
+
+        <div>
+            <h3>Fine Dining</h3>
+            <p>
+                Enjoy breakfast, lunch and dinner prepared for the
+                complete Château experience.
+            </p>
+        </div>
+
+        <div>
+            <h3>Guest Service</h3>
+            <p>
+                Our staff is dedicated to providing refined and
+                attentive hospitality.
+            </p>
+        </div>
+
+        <div>
+            <h3>Chauffeur</h3>
+            <p>
+                Travel in comfort with the exclusive Château
+                chauffeur service.
+            </p>
+        </div>
+
+        <div>
+            <h3>Housekeeping</h3>
+            <p>
+                Impeccable rooms maintained with care and attention
+                to every detail.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="rooms-preview">
+
+    <h2>Our Rooms</h2>
+
+    <div class="rooms-container">
+
+        <div class="room-card">
+
+            <h3>Standard Room</h3>
+
+            <p>
+                Elegant and comfortable accommodation for a refined
+                Château stay.
+            </p>
+
+            <div class="room-price">
+                $99 / night
+            </div>
+
+            <a href="standard.html" class="room-button">
+                VIEW ROOM
+            </a>
+
+        </div>
+
+
+        <div class="room-card">
+
+            <h3>Plus Room</h3>
+
+            <p>
+                More space, greater comfort and an elevated
+                Château experience.
+            </p>
+
+            <div class="room-price">
+                $199 / night
+            </div>
+
+            <a href="plus.html" class="room-button">
+                VIEW ROOM
+            </a>
+
+        </div>
+
+
+        <div class="room-card">
+
+            <h3>VIP Room</h3>
+
+            <p>
+                The most exclusive accommodation at Château Lumière,
+                created for a truly royal stay.
+            </p>
+
+            <div class="room-price">
+                $399 / night
+            </div>
+
+            <a href="vip.html" class="room-button">
+                VIEW ROOM
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="final-cta">
+
+    <h2>Your Château Awaits</h2>
+
+    <p>
+        Discover an experience defined by elegance, comfort and
+        exceptional service.
+    </p>
+
+    <a href="booking.html" class="hero-button">
+        BOOK YOUR STAY
+    </a>
+
+</section>
+
+
+<footer>
+
+    <p>
+        <strong>CHÂTEAU LUMIÈRE</strong>
+    </p>
+
+    <p>
+        Luxury • Elegance • Service
+    </p>
+
+    <p>
+        © 2026 Château Lumière
+    </p>
+
+</footer>
+
+
+<audio id="backgroundMusic" loop>
+    <source src="audio/background.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+const enterScreen = document.getElementById("enterScreen");
+const enterButton = document.getElementById("enterButton");
+
+/* Restore the exact position of the music */
+const savedTime = localStorage.getItem("chateauMusicTime");
+
+if (savedTime) {
+    music.addEventListener("loadedmetadata", function () {
+        music.currentTime = parseFloat(savedTime);
+    }, { once: true });
+}
+
+/* Check if the music was already started */
+const musicStarted = localStorage.getItem("chateauMusicStarted");
+
+if (musicStarted === "true") {
+    enterScreen.classList.add("hidden");
+
+    music.play().catch(() => {
+        console.log("Browser blocked autoplay.");
+    });
+}
+
+/* First entrance to the Château */
+enterButton.addEventListener("click", function () {
+
+    music.play().then(function () {
+
+        localStorage.setItem("chateauMusicStarted", "true");
+
+        enterScreen.classList.add("hidden");
+
+    }).catch(function (error) {
+        console.log("Music could not start:", error);
+    });
+
+});
+
+/* Save the music position while playing */
+music.addEventListener("timeupdate", function () {
+    localStorage.setItem(
+        "chateauMusicTime",
+        music.currentTime
+    );
+});
+
+/* Save position before leaving the page */
+window.addEventListener("beforeunload", function () {
+    localStorage.setItem(
+        "chateauMusicTime",
+        music.currentTime
+    );
+});
+</script>
+
+</body>
+</html>
