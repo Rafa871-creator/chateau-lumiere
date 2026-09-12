@@ -63,6 +63,23 @@
             letter-spacing: 3px;
         }
 
+        /* PLUS ROOM IMAGE */
+
+        .plus-image {
+            max-width: 1100px;
+            margin: 50px auto 0;
+            padding: 0 25px;
+        }
+
+        .plus-image img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid #D4AF6A;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
         .room-content {
             max-width: 900px;
             margin: 70px auto;
@@ -123,6 +140,21 @@
         .button:hover {
             background-color: #E8B7C8;
         }
+
+        @media (max-width: 700px) {
+
+            .room-hero h1 {
+                font-size: 42px;
+            }
+
+            .plus-image {
+                padding: 0 15px;
+            }
+
+            .plus-image img {
+                max-height: 450px;
+            }
+        }
     </style>
 </head>
 
@@ -136,8 +168,9 @@
     <a href="staff.html">STAFF</a>
     <a href="reviews.html">REVIEWS</a>
     <a href="booking.html">BOOK YOUR STAY</a>
-<a href="contact.html">CONTACT</a>
+    <a href="contact.html">CONTACT</a>
 </nav>
+
 
 <section class="room-hero">
 
@@ -150,6 +183,16 @@
     <h2>LUXURY & SPACE</h2>
 
 </section>
+
+
+<!-- PLUS ROOM IMAGE -->
+
+<section class="plus-image">
+
+    <img src="images/plus.png" alt="Château Lumière Plus Room">
+
+</section>
+
 
 <section class="room-content">
 
@@ -184,11 +227,15 @@
 
     </div>
 
+
     <div class="price">
         $199 / night / person
     </div>
 
-    <a href="rooms.html" class="button">BACK TO ROOMS</a>
+
+    <a href="rooms.html" class="button">
+        BACK TO ROOMS
+    </a>
 
     <a href="booking.html?room=plus" class="button">
         RESERVE YOUR ROOM
@@ -196,56 +243,85 @@
 
 </section>
 
+
 <footer>
+
     <p><strong>CHÂTEAU LUMIÈRE</strong></p>
+
     <p>Luxury • Elegance • Service</p>
+
     <p>© 2026 Château Lumière</p>
+
 </footer>
+
 
 <audio id="backgroundMusic" loop>
     <source src="audio/background.mp3" type="audio/mpeg">
 </audio>
 
+
 <script>
+
 const music = document.getElementById("backgroundMusic");
 
 const savedTime = localStorage.getItem("chateauMusicTime");
 const musicStarted = localStorage.getItem("chateauMusicStarted");
 
+
 /* Restore the exact position */
+
 if (savedTime) {
+
     music.addEventListener("loadedmetadata", function () {
+
         music.currentTime = parseFloat(savedTime);
+
     }, { once: true });
+
 }
+
 
 /* If music was already started on the Home page,
    try to continue it automatically */
+
 if (musicStarted === "true") {
+
     music.play().catch(() => {
+
         /*
         The browser may still block autoplay.
         This normally only happens if the user has not
         interacted with the website yet.
         */
+
     });
+
 }
 
+
 /* Save the current position */
+
 music.addEventListener("timeupdate", function () {
+
     localStorage.setItem(
         "chateauMusicTime",
         music.currentTime
     );
+
 });
 
+
 /* Save position before leaving */
+
 window.addEventListener("beforeunload", function () {
+
     localStorage.setItem(
         "chateauMusicTime",
         music.currentTime
     );
+
 });
+
 </script>
 
 </body>
