@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,24 +38,102 @@
             border: 1px solid #D4AF6A;
         }
 
+        /* =========================
+           VINTAGE GRAMOPHONE
+        ========================= */
+
+        .turntable {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            margin: 0 auto 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #4A101C,
+                    #26070F
+                );
+
+            border: 2px solid #D4AF6A;
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,0.55),
+                inset 0 0 25px rgba(0,0,0,0.5);
+
+            overflow: hidden;
+        }
+
+        .turntable::before {
+            content: "";
+            position: absolute;
+            inset: 12px;
+
+            border: 1px solid rgba(212,175,106,0.35);
+
+            pointer-events: none;
+        }
+
+        .turntable-top {
+            position: absolute;
+
+            left: 45px;
+            top: 35px;
+
+            width: 390px;
+            height: 270px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #21060D,
+                    #3D0915
+                );
+
+            border: 1px solid #D4AF6A;
+
+            box-shadow:
+                inset 0 0 25px rgba(0,0,0,0.6);
+        }
+
+        /* =========================
+           VINYL
+        ========================= */
+
         .record {
-            width: 250px;
-            height: 250px;
+            position: absolute;
+
+            width: 245px;
+            height: 245px;
+
+            left: 72px;
+            top: 12px;
+
             border-radius: 50%;
-            background: repeating-radial-gradient(
-                circle,
-                #111 0px,
-                #111 4px,
-                #181818 5px,
-                #111 8px
-            );
-            margin: 0 auto 35px;
-            border: 5px solid #222;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+
+            background:
+                repeating-radial-gradient(
+                    circle,
+                    #080808 0px,
+                    #080808 3px,
+                    #171717 4px,
+                    #080808 7px
+                );
+
+            border: 5px solid #111;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.65),
+                inset 0 0 15px rgba(255,255,255,0.04);
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             transition: transform 0.3s;
+
+            z-index: 2;
         }
 
         .record.playing {
@@ -66,15 +143,41 @@
         .record-label {
             width: 75px;
             height: 75px;
+
             border-radius: 50%;
-            background-color: #D4AF6A;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #E8B7C8 0%,
+                    #D4AF6A 45%,
+                    #B68D45 100%
+                );
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             color: #3D0915;
+
             font-size: 10px;
             letter-spacing: 1px;
             font-weight: bold;
+
+            border: 2px solid #8F6E35;
+        }
+
+        .record-label::after {
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #3D0915;
         }
 
         @keyframes spin {
@@ -86,6 +189,240 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* =========================
+           SPINDLE
+        ========================= */
+
+        .spindle {
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #D4AF6A;
+
+            left: 190px;
+            top: 130px;
+
+            z-index: 5;
+
+            box-shadow:
+                0 0 5px rgba(212,175,106,0.7);
+        }
+
+        /* =========================
+           REALISTIC TONEARM BASE
+        ========================= */
+
+        .tonearm-base {
+            position: absolute;
+
+            right: 30px;
+            top: 55px;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #F1D99A 0%,
+                    #D4AF6A 35%,
+                    #8F6E35 55%,
+                    #3D0915 57%
+                );
+
+            border: 2px solid #D4AF6A;
+
+            z-index: 7;
+
+            box-shadow:
+                0 4px 10px rgba(0,0,0,0.55);
+        }
+
+        /* =========================
+           REALISTIC TONEARM
+        ========================= */
+
+        .tonearm {
+            position: absolute;
+
+            right: 58px;
+            top: 72px;
+
+            width: 125px;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #F1D99A,
+                    #D4AF6A,
+                    #8F6E35
+                );
+
+            border-radius: 5px;
+
+            transform-origin: right center;
+
+            transform: rotate(-18deg);
+
+            transition:
+                transform 0.9s
+                cubic-bezier(0.4, 0, 0.2, 1);
+
+            z-index: 8;
+
+            box-shadow:
+                0 2px 4px rgba(0,0,0,0.55);
+        }
+
+        /* Small curved section */
+
+        .tonearm::before {
+            content: "";
+
+            position: absolute;
+
+            left: 8px;
+            top: -7px;
+
+            width: 18px;
+            height: 14px;
+
+            border-left: 3px solid #D4AF6A;
+            border-bottom: 3px solid #D4AF6A;
+
+            border-radius: 0 0 0 12px;
+
+            transform: rotate(-15deg);
+        }
+
+        /* =========================
+           HEADSHELL
+        ========================= */
+
+        .needle-holder {
+            position: absolute;
+
+            left: -18px;
+            top: -5px;
+
+            width: 24px;
+            height: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #E8B7C8,
+                    #D4AF6A
+                );
+
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 20%,
+                    80% 100%,
+                    20% 100%
+                );
+
+            box-shadow:
+                0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* =========================
+           NEEDLE
+        ========================= */
+
+        .needle {
+            position: absolute;
+
+            width: 2px;
+            height: 13px;
+
+            background: #E8B7C8;
+
+            left: 8px;
+            bottom: -10px;
+
+            transform: rotate(8deg);
+
+            border-radius: 2px;
+
+            box-shadow:
+                0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* =========================
+           TONEARM PLAYING POSITION
+        ========================= */
+
+        .tonearm.playing {
+            transform: rotate(-42deg);
+        }
+
+        /* =========================
+           DECORATIVE SCREWS
+        ========================= */
+
+        .screw {
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #D4AF6A;
+
+            box-shadow:
+                inset 0 0 2px #3D0915;
+        }
+
+        .screw.one {
+            left: 18px;
+            top: 18px;
+        }
+
+        .screw.two {
+            right: 18px;
+            top: 18px;
+        }
+
+        .screw.three {
+            left: 18px;
+            bottom: 18px;
+        }
+
+        .screw.four {
+            right: 18px;
+            bottom: 18px;
+        }
+
+        .gramophone-name {
+            position: absolute;
+
+            right: 25px;
+            bottom: 38px;
+
+            color: #D4AF6A;
+
+            font-size: 11px;
+            letter-spacing: 3px;
+
+            writing-mode: vertical-rl;
+
+            opacity: 0.8;
+        }
+
+        /* =========================
+           PLAYER INFORMATION
+        ========================= */
 
         .now-playing {
             color: #D4AF6A;
@@ -116,6 +453,10 @@
             accent-color: #D4AF6A;
         }
 
+        /* =========================
+           CHANNELS
+        ========================= */
+
         .channels {
             max-width: 900px;
             margin: 70px auto;
@@ -138,9 +479,13 @@
         .channel-card {
             width: 220px;
             padding: 25px;
+
             background-color: #681426;
+
             border: 1px solid #D4AF6A;
+
             cursor: pointer;
+
             transition: 0.3s;
         }
 
@@ -159,14 +504,48 @@
             font-size: 13px;
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 700px) {
+
             .radio-hero h1 {
                 font-size: 42px;
             }
 
+            .turntable {
+                height: 300px;
+            }
+
+            .turntable-top {
+                left: 20px;
+                width: 330px;
+                height: 230px;
+            }
+
             .record {
-                width: 210px;
-                height: 210px;
+                width: 205px;
+                height: 205px;
+                left: 55px;
+            }
+
+            .spindle {
+                left: 152px;
+                top: 108px;
+            }
+
+            .tonearm {
+                right: 35px;
+                width: 120px;
+            }
+
+            .tonearm-base {
+                right: 18px;
+            }
+
+            .gramophone-name {
+                display: none;
             }
         }
     </style>
@@ -182,12 +561,14 @@
     <a href="staff.html">STAFF</a>
     <a href="reviews.html">REVIEWS</a>
     <a href="booking.html">BOOK YOUR STAY</a>
-<a href="contact.html">CONTACT</a>
+    <a href="contact.html">CONTACT</a>
 </nav>
 
 <section class="radio-hero">
 
-    <div class="eyebrow">CHÂTEAU LUMIÈRE BROADCAST</div>
+    <div class="eyebrow">
+        CHÂTEAU LUMIÈRE BROADCAST
+    </div>
 
     <h1>Radio Lumière</h1>
 
@@ -199,10 +580,41 @@
 
 <section class="radio-player">
 
-    <div class="record" id="record">
+    <div class="turntable">
 
-        <div class="record-label">
-            LUMIÈRE
+        <div class="turntable-top">
+
+            <div class="record" id="record">
+
+                <div class="record-label">
+                    LUMIÈRE
+                </div>
+
+            </div>
+
+            <div class="spindle"></div>
+
+            <div class="tonearm" id="tonearm">
+
+                <div class="needle-holder">
+
+                    <div class="needle"></div>
+
+                </div>
+
+            </div>
+
+            <div class="tonearm-base"></div>
+
+        </div>
+
+        <div class="screw one"></div>
+        <div class="screw two"></div>
+        <div class="screw three"></div>
+        <div class="screw four"></div>
+
+        <div class="gramophone-name">
+            CHÂTEAU LUMIÈRE
         </div>
 
     </div>
@@ -263,7 +675,9 @@
             onclick="selectChannel(0)"
         >
             <h3>Radio Lumière</h3>
-            <p>CHÂTEAU LUMIÈRE • CHANNEL 01</p>
+            <p>
+                CHÂTEAU LUMIÈRE • CHANNEL 01
+            </p>
         </div>
 
         <div
@@ -271,7 +685,9 @@
             onclick="selectChannel(1)"
         >
             <h3>Lumière Lounge</h3>
-            <p>LUMIÈRE LOUNGE • CHANNEL 02</p>
+            <p>
+                LUMIÈRE LOUNGE • CHANNEL 02
+            </p>
         </div>
 
         <div
@@ -279,17 +695,19 @@
             onclick="selectChannel(2)"
         >
             <h3>Le Soir</h3>
-            <p>LE SOIR • CHANNEL 03</p>
+            <p>
+                LE SOIR • CHANNEL 03
+            </p>
         </div>
 
-        <div class="channel-card">
-
+        <div
+            class="channel-card"
+            onclick="selectChannel(3)"
+        >
             <h3>Grand Piano</h3>
-
             <p>
                 GRAND PIANO • CHANNEL 04
             </p>
-
         </div>
 
     </div>
@@ -306,7 +724,10 @@
 
 </footer>
 
-<audio id="radioAudio" src="audio/radio1.mp3"></audio>
+<audio
+    id="radioAudio"
+    src="audio/radio1.mp3"
+></audio>
 
 <script>
 
@@ -328,6 +749,12 @@ const songs = [
         file: "audio/radio3.mp3",
         title: "Le Soir",
         channel: "LE SOIR • CHANNEL 03"
+    },
+
+    {
+        file: "audio/radio4.mp3",
+        title: "Grand Piano",
+        channel: "GRAND PIANO • CHANNEL 04"
     }
 
 ];
@@ -339,6 +766,9 @@ const audio =
 
 const record =
     document.getElementById("record");
+
+const tonearm =
+    document.getElementById("tonearm");
 
 const playButton =
     document.getElementById("playButton");
@@ -356,11 +786,16 @@ const volumeControl =
 audio.volume = 0.5;
 
 
+/* =========================
+   LOAD SONG
+========================= */
+
 function loadSong(index) {
 
     currentSong = index;
 
-    audio.src = songs[currentSong].file;
+    audio.src =
+        songs[currentSong].file;
 
     songTitle.textContent =
         songs[currentSong].title;
@@ -370,17 +805,52 @@ function loadSong(index) {
 
     document
         .querySelectorAll(".channel-card")
-        .forEach(card => card.classList.remove("active"));
+        .forEach(card =>
+            card.classList.remove("active")
+        );
 
     const cards =
         document.querySelectorAll(".channel-card");
 
     if (cards[currentSong]) {
-        cards[currentSong].classList.add("active");
+
+        cards[currentSong]
+            .classList.add("active");
+
     }
 
 }
 
+
+/* =========================
+   TONEARM
+========================= */
+
+function startRecord() {
+
+    record.classList.add("playing");
+
+    tonearm.classList.add("playing");
+
+    playButton.textContent = "PAUSE";
+
+}
+
+
+function stopRecord() {
+
+    record.classList.remove("playing");
+
+    tonearm.classList.remove("playing");
+
+    playButton.textContent = "PLAY";
+
+}
+
+
+/* =========================
+   PLAY / PAUSE
+========================= */
 
 function togglePlay() {
 
@@ -388,60 +858,69 @@ function togglePlay() {
 
         audio.play();
 
-        playButton.textContent = "PAUSE";
-
-        record.classList.add("playing");
+        startRecord();
 
     } else {
 
         audio.pause();
 
-        playButton.textContent = "PLAY";
-
-        record.classList.remove("playing");
+        stopRecord();
 
     }
 
 }
 
+
+/* =========================
+   NEXT
+========================= */
 
 function nextSong() {
 
     currentSong++;
 
     if (currentSong >= songs.length) {
+
         currentSong = 0;
+
     }
 
     loadSong(currentSong);
 
     audio.play();
 
-    playButton.textContent = "PAUSE";
-
-    record.classList.add("playing");
+    startRecord();
 
 }
 
+
+/* =========================
+   PREVIOUS
+========================= */
 
 function previousSong() {
 
     currentSong--;
 
     if (currentSong < 0) {
-        currentSong = songs.length - 1;
+
+        currentSong =
+            songs.length - 1;
+
     }
 
     loadSong(currentSong);
 
     audio.play();
 
-    playButton.textContent = "PAUSE";
-
-    record.classList.add("playing");
+    startRecord();
 
 }
 
+
+/* =========================
+   CHANNEL SELECTION
+========================= */
 
 function selectChannel(index) {
 
@@ -449,12 +928,14 @@ function selectChannel(index) {
 
     audio.play();
 
-    playButton.textContent = "PAUSE";
-
-    record.classList.add("playing");
+    startRecord();
 
 }
 
+
+/* =========================
+   VOLUME
+========================= */
 
 volumeControl.addEventListener(
     "input",
@@ -466,6 +947,10 @@ volumeControl.addEventListener(
     }
 );
 
+
+/* =========================
+   WHEN SONG ENDS
+========================= */
 
 audio.addEventListener(
     "ended",
@@ -480,4 +965,3 @@ audio.addEventListener(
 
 </body>
 </html>
-
