@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -6,229 +6,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Guest Reviews | Château Lumière</title>
 
-<title>Guest Reviews | Château Lumière</title>
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
+    <style>
+        .reviews-hero {
+            padding: 90px 20px;
+            border-bottom: 1px solid #D4AF6A;
+        }
 
-<style>
-    .reviews-hero {
-        padding: 90px 20px;
-        border-bottom: 1px solid #D4AF6A;
-    }
-
-    .reviews-hero .eyebrow {
-        color: #E8B7C8;
-        font-size: 12px;
-        letter-spacing: 4px;
-        margin-bottom: 15px;
-    }
-
-    .reviews-hero h1 {
-        color: #D4AF6A;
-        font-size: 55px;
-        margin: 0 0 15px;
-        letter-spacing: 3px;
-    }
-
-    .reviews-hero p {
-        font-size: 18px;
-        font-style: italic;
-        line-height: 1.7;
-    }
-
-    .rating-summary {
-        max-width: 800px;
-        margin: 60px auto 40px;
-        padding: 35px 20px;
-        background-color: #681426;
-        border: 1px solid #D4AF6A;
-    }
-
-    .rating-number {
-        color: #D4AF6A;
-        font-size: 60px;
-        font-weight: bold;
-    }
-
-    .stars-display {
-        color: #D4AF6A;
-        font-size: 30px;
-        letter-spacing: 5px;
-        margin: 10px 0;
-    }
-
-    .review-count {
-        color: #E8B7C8;
-        font-size: 15px;
-    }
-
-    .review-form {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 40px;
-        background-color: #681426;
-        border: 1px solid #D4AF6A;
-        text-align: left;
-    }
-
-    .review-form h2 {
-        text-align: center;
-        color: #D4AF6A;
-        font-size: 30px;
-        margin-top: 0;
-        margin-bottom: 30px;
-    }
-
-    .review-form label {
-        display: block;
-        color: #E8B7C8;
-        font-size: 13px;
-        letter-spacing: 2px;
-        margin: 22px 0 9px;
-    }
-
-    .review-form input[type="text"],
-    .review-form textarea {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 14px;
-        background-color: #5A0F20;
-        color: #F7F1E5;
-        border: 1px solid #D4AF6A;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 15px;
-    }
-
-    .review-form textarea {
-        height: 130px;
-        resize: vertical;
-    }
-
-    .review-form input::placeholder,
-    .review-form textarea::placeholder {
-        color: #CFAEB8;
-    }
-
-    .review-form input:focus,
-    .review-form textarea:focus {
-        outline: none;
-        border-color: #E8B7C8;
-    }
-
-    .star-selector {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        width: fit-content;
-    }
-
-    .star-selector input {
-        display: none;
-    }
-
-    .star-selector label {
-        color: #8C6672;
-        font-size: 38px;
-        letter-spacing: 3px;
-        cursor: pointer;
-        margin: 0;
-        transition: 0.2s;
-    }
-
-    .star-selector label:hover,
-    .star-selector label:hover ~ label,
-    .star-selector input:checked ~ label {
-        color: #D4AF6A;
-    }
-
-    .submit-review {
-        display: block;
-        margin: 30px auto 0;
-    }
-
-    .reviews-section {
-        max-width: 1050px;
-        margin: 75px auto;
-        padding: 0 25px;
-    }
-
-    .reviews-section h2 {
-        color: #D4AF6A;
-        font-size: 32px;
-        margin-bottom: 35px;
-    }
-
-    #reviewsList {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-    }
-
-    .review-card {
-        background-color: #681426;
-        border: 1px solid #D4AF6A;
-        padding: 28px;
-        text-align: left;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    }
-
-    .review-card .review-stars {
-        color: #D4AF6A;
-        font-size: 21px;
-        letter-spacing: 2px;
-        margin-bottom: 14px;
-    }
-
-    .review-card h3 {
-        color: #F7F1E5;
-        font-size: 19px;
-        margin: 0 0 12px;
-    }
-
-    .review-card p {
-        color: #F7F1E5;
-        font-size: 15px;
-        line-height: 1.8;
-        margin: 0;
-    }
-
-    .review-card .review-date {
-        color: #CFAEB8;
-        font-size: 12px;
-        margin-top: 18px;
-    }
-
-    .no-reviews {
-        grid-column: 1 / -1;
-        padding: 40px 20px;
-        border: 1px solid #D4AF6A;
-        background-color: #681426;
-        color: #E8B7C8;
-    }
-
-    @media (max-width: 700px) {
+        .reviews-hero .eyebrow {
+            color: #E8B7C8;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
 
         .reviews-hero h1 {
-            font-size: 42px;
+            color: #D4AF6A;
+            font-size: 55px;
+            margin: 0 0 15px;
+            letter-spacing: 3px;
+        }
+
+        .reviews-hero p {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.7;
         }
 
         .rating-summary {
-            margin: 45px 20px 35px;
+            max-width: 800px;
+            margin: 60px auto 40px;
+            padding: 35px 20px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+        }
+
+        .rating-number {
+            color: #D4AF6A;
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .stars-display {
+            color: #D4AF6A;
+            font-size: 30px;
+            letter-spacing: 5px;
+            margin: 10px 0;
+        }
+
+        .review-count {
+            color: #E8B7C8;
+            font-size: 15px;
         }
 
         .review-form {
-            margin: 40px 20px;
-            padding: 25px;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+            text-align: left;
+        }
+
+        .review-form h2 {
+            text-align: center;
+            color: #D4AF6A;
+            font-size: 30px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .review-form label {
+            display: block;
+            color: #E8B7C8;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin: 22px 0 9px;
+        }
+
+        .review-form input[type="text"],
+        .review-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            background-color: #5A0F20;
+            color: #F7F1E5;
+            border: 1px solid #D4AF6A;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+        }
+
+        .review-form textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .review-form input::placeholder,
+        .review-form textarea::placeholder {
+            color: #CFAEB8;
+        }
+
+        .review-form input:focus,
+        .review-form textarea:focus {
+            outline: none;
+            border-color: #E8B7C8;
+        }
+
+        .star-selector {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            width: fit-content;
+        }
+
+        .star-selector input {
+            display: none;
+        }
+
+        .star-selector label {
+            color: #8C6672;
+            font-size: 38px;
+            letter-spacing: 3px;
+            cursor: pointer;
+            margin: 0;
+            transition: 0.2s;
+        }
+
+        .star-selector label:hover,
+        .star-selector label:hover ~ label,
+        .star-selector input:checked ~ label {
+            color: #D4AF6A;
+        }
+
+        .submit-review {
+            display: block;
+            margin: 30px auto 0;
         }
 
         .reviews-section {
-            padding: 0 20px;
+            max-width: 1050px;
+            margin: 75px auto;
+            padding: 0 25px;
         }
-    }
-</style>
-```
 
+        .reviews-section h2 {
+            color: #D4AF6A;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        #reviewsList {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background-color: #681426;
+            border: 1px solid #D4AF6A;
+            padding: 28px;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .review-card .review-stars {
+            color: #D4AF6A;
+            font-size: 21px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .review-card h3 {
+            color: #F7F1E5;
+            font-size: 19px;
+            margin: 0 0 12px;
+        }
+
+        .review-card p {
+            color: #F7F1E5;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .review-card .review-date {
+            color: #CFAEB8;
+            font-size: 12px;
+            margin-top: 18px;
+        }
+
+        .no-reviews {
+            grid-column: 1 / -1;
+            padding: 40px 20px;
+            border: 1px solid #D4AF6A;
+            background-color: #681426;
+            color: #E8B7C8;
+        }
+
+        @media (max-width: 700px) {
+
+            .reviews-hero h1 {
+                font-size: 42px;
+            }
+
+            .rating-summary {
+                margin: 45px 20px 35px;
+            }
+
+            .review-form {
+                margin: 40px 20px;
+                padding: 25px;
+            }
+
+            .reviews-section {
+                padding: 0 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -241,176 +238,187 @@
     <a href="staff.html">STAFF</a>
     <a href="reviews.html">REVIEWS</a>
     <a href="booking.html">BOOK YOUR STAY</a>
-<a href="contact.html">CONTACT</a>
+    <a href="contact.html">CONTACT</a>
 </nav>
 
 <section class="reviews-hero">
 
-```
-<div class="eyebrow">
-    THE CHÂTEAU LUMIÈRE EXPERIENCE
-</div>
+    <div class="eyebrow">
+        THE CHÂTEAU LUMIÈRE EXPERIENCE
+    </div>
 
-<h1>Guest Reviews</h1>
+    <h1>Guest Reviews</h1>
 
-<p>
-    Discover what our guests have to say about their stay.
-</p>
-```
+    <p>
+        Discover what our guests have to say about their stay.
+    </p>
 
 </section>
 
 <section class="rating-summary">
 
-```
-<div class="rating-number" id="averageRating">
-    5.0
-</div>
+    <div class="rating-number" id="averageRating">
+        5.0
+    </div>
 
-<div class="stars-display" id="averageStars">
-    ★★★★★
-</div>
+    <div class="stars-display" id="averageStars">
+        ★★★★★
+    </div>
 
-<div class="review-count" id="reviewCount">
-    Be the first guest to leave a review.
-</div>
-```
+    <div class="review-count" id="reviewCount">
+        Be the first guest to leave a review.
+    </div>
 
 </section>
 
 <section class="review-form">
 
-```
-<h2>Share Your Experience</h2>
+    <h2>Share Your Experience</h2>
 
-<form id="reviewForm">
+    <form id="reviewForm">
 
-    <label for="guestName">
-        YOUR NAME
-    </label>
-
-    <input
-        type="text"
-        id="guestName"
-        placeholder="How should we display your name?"
-        maxlength="40"
-        required
-    >
-
-
-    <label>
-        YOUR RATING
-    </label>
-
-    <div class="star-selector">
+        <label for="guestName">
+            YOUR NAME
+        </label>
 
         <input
-            type="radio"
-            id="star5"
-            name="rating"
-            value="5"
+            type="text"
+            id="guestName"
+            placeholder="How should we display your name?"
+            maxlength="40"
             required
         >
-        <label for="star5">★</label>
 
-        <input
-            type="radio"
-            id="star4"
-            name="rating"
-            value="4"
+        <label>
+            YOUR RATING
+        </label>
+
+        <div class="star-selector">
+
+            <input
+                type="radio"
+                id="star5"
+                name="rating"
+                value="5"
+                required
+            >
+            <label for="star5">★</label>
+
+            <input
+                type="radio"
+                id="star4"
+                name="rating"
+                value="4"
+            >
+            <label for="star4">★</label>
+
+            <input
+                type="radio"
+                id="star3"
+                name="rating"
+                value="3"
+            >
+            <label for="star3">★</label>
+
+            <input
+                type="radio"
+                id="star2"
+                name="rating"
+                value="2"
+            >
+            <label for="star2">★</label>
+
+            <input
+                type="radio"
+                id="star1"
+                name="rating"
+                value="1"
+            >
+            <label for="star1">★</label>
+
+        </div>
+
+        <label for="comment">
+            YOUR COMMENT
+        </label>
+
+        <textarea
+            id="comment"
+            placeholder="Tell us about your experience... (optional)"
+            maxlength="500"
+        ></textarea>
+
+        <button
+            class="submit-review"
+            type="submit"
         >
-        <label for="star4">★</label>
+            SUBMIT REVIEW
+        </button>
 
-        <input
-            type="radio"
-            id="star3"
-            name="rating"
-            value="3"
-        >
-        <label for="star3">★</label>
-
-        <input
-            type="radio"
-            id="star2"
-            name="rating"
-            value="2"
-        >
-        <label for="star2">★</label>
-
-        <input
-            type="radio"
-            id="star1"
-            name="rating"
-            value="1"
-        >
-        <label for="star1">★</label>
-
-    </div>
-
-
-    <label for="comment">
-        YOUR COMMENT
-    </label>
-
-    <textarea
-        id="comment"
-        placeholder="Tell us about your experience... (optional)"
-        maxlength="500"
-    ></textarea>
-
-
-    <button
-        class="submit-review"
-        type="submit"
-    >
-        SUBMIT REVIEW
-    </button>
-
-</form>
-```
+    </form>
 
 </section>
 
 <section class="reviews-section">
 
-```
-<h2>What Our Guests Say</h2>
+    <h2>What Our Guests Say</h2>
 
-<div id="reviewsList"></div>
-```
+    <div id="reviewsList"></div>
 
 </section>
 
 <footer>
 
-```
-<p>
-    <strong>CHÂTEAU LUMIÈRE</strong>
-</p>
+    <p>
+        <strong>CHÂTEAU LUMIÈRE</strong>
+    </p>
 
-<p>
-    Luxury • Elegance • Service
-</p>
+    <p>
+        Luxury • Elegance • Service
+    </p>
 
-<p>
-    © 2026 Château Lumière
-</p>
-```
+    <p>
+        © 2026 Château Lumière
+    </p>
 
 </footer>
 
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
-const reviewForm = document.getElementById("reviewForm");
-const reviewsList = document.getElementById("reviewsList");
+const SUPABASE_URL =
+    "https://jhhpwsvzzygdwtibuwuq.supabase.co";
 
-const averageRating = document.getElementById("averageRating");
-const averageStars = document.getElementById("averageStars");
-const reviewCount = document.getElementById("reviewCount");
+const SUPABASE_KEY =
+    "sb_publishable_gXSxxiKq8qtP9fgulVzfhw_sBsf65gW";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
-let reviews =
-    JSON.parse(localStorage.getItem("chateauReviews")) || [];
+const reviewForm =
+    document.getElementById("reviewForm");
+
+const reviewsList =
+    document.getElementById("reviewsList");
+
+const averageRating =
+    document.getElementById("averageRating");
+
+const averageStars =
+    document.getElementById("averageStars");
+
+const reviewCount =
+    document.getElementById("reviewCount");
+
+
+let reviews = [];
 
 
 function displayStars(number) {
@@ -449,11 +457,12 @@ function updateRating() {
     let total = 0;
 
     reviews.forEach(function(review) {
-        total += review.rating;
+        total += Number(review.rating);
     });
 
 
-    const average = total / reviews.length;
+    const average =
+        total / reviews.length;
 
 
     averageRating.textContent =
@@ -478,6 +487,17 @@ function updateRating() {
 }
 
 
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
 function displayReviews() {
 
     reviewsList.innerHTML = "";
@@ -497,45 +517,47 @@ function displayReviews() {
     }
 
 
-    reviews
-        .slice()
-        .reverse()
-        .forEach(function(review) {
+    reviews.forEach(function(review) {
 
-            const card =
-                document.createElement("div");
+        const card =
+            document.createElement("div");
 
-            card.className =
-                "review-card";
+        card.className =
+            "review-card";
 
 
-            card.innerHTML = `
-
-                <div class="review-stars">
-                    ${displayStars(review.rating)}
-                </div>
-
-                <h3>
-                    ${escapeHTML(review.name)}
-                </h3>
-
-                <p>
-                    ${escapeHTML(
-                        review.comment ||
-                        "No comment was provided."
-                    )}
-                </p>
-
-                <div class="review-date">
-                    ${review.date}
-                </div>
-
-            `;
+        const reviewDate =
+            new Date(review.created_at)
+            .toLocaleDateString("en-GB");
 
 
-            reviewsList.appendChild(card);
+        card.innerHTML = `
 
-        });
+            <div class="review-stars">
+                ${displayStars(Number(review.rating))}
+            </div>
+
+            <h3>
+                ${escapeHTML(review.name)}
+            </h3>
+
+            <p>
+                ${escapeHTML(
+                    review.comment ||
+                    "No comment was provided."
+                )}
+            </p>
+
+            <div class="review-date">
+                ${reviewDate}
+            </div>
+
+        `;
+
+
+        reviewsList.appendChild(card);
+
+    });
 
 
     updateRating();
@@ -543,20 +565,44 @@ function displayReviews() {
 }
 
 
-function escapeHTML(text) {
+async function loadReviews() {
 
-    const div =
-        document.createElement("div");
+    const { data, error } =
+        await supabaseClient
+            .from("reviews")
+            .select("*")
+            .order("created_at", {
+                ascending: false
+            });
 
-    div.textContent = text;
 
-    return div.innerHTML;
+    if (error) {
+
+        console.error(
+            "Could not load reviews:",
+            error
+        );
+
+        reviewsList.innerHTML = `
+            <div class="no-reviews">
+                Reviews could not be loaded right now.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    reviews = data || [];
+
+    displayReviews();
+
 }
 
 
 reviewForm.addEventListener(
     "submit",
-    function(event) {
+    async function(event) {
 
         event.preventDefault();
 
@@ -575,93 +621,133 @@ reviewForm.addEventListener(
                 .trim();
 
 
-        const rating =
+        const selectedRating =
             document.querySelector(
                 'input[name="rating"]:checked'
-            ).value;
+            );
 
 
-        const newReview = {
+        if (!selectedRating) {
 
-            name: name,
+            alert("Please select a rating.");
 
-            rating: Number(rating),
-
-            comment: comment,
-
-            date:
-                new Date()
-                .toLocaleDateString("en-GB")
-
-        };
+            return;
+        }
 
 
-        reviews.push(newReview);
+        const rating =
+            Number(selectedRating.value);
 
 
-        localStorage.setItem(
-            "chateauReviews",
-            JSON.stringify(reviews)
-        );
+        const { error } =
+            await supabaseClient
+                .from("reviews")
+                .insert({
+                    name: name,
+                    rating: rating,
+                    comment: comment || null
+                });
+
+
+        if (error) {
+
+            console.error(
+                "Could not submit review:",
+                error
+            );
+
+            alert(
+                "Your review could not be submitted. Please try again."
+            );
+
+            return;
+        }
 
 
         reviewForm.reset();
 
 
-        displayReviews();
+        await loadReviews();
+
+
+        alert(
+            "Thank you for your review!"
+        );
 
     }
 );
 
 
-displayReviews();
+loadReviews();
 
 </script>
+
 <audio id="backgroundMusic" loop>
     <source src="audio/background.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const music = document.getElementById("backgroundMusic");
 
-const savedTime = localStorage.getItem("chateauMusicTime");
-const musicStarted = localStorage.getItem("chateauMusicStarted");
+const music =
+    document.getElementById("backgroundMusic");
 
-/* Restore the exact position */
+const savedTime =
+    localStorage.getItem("chateauMusicTime");
+
+const musicStarted =
+    localStorage.getItem("chateauMusicStarted");
+
+
 if (savedTime) {
-    music.addEventListener("loadedmetadata", function () {
-        music.currentTime = parseFloat(savedTime);
-    }, { once: true });
+
+    music.addEventListener(
+        "loadedmetadata",
+        function () {
+
+            music.currentTime =
+                parseFloat(savedTime);
+
+        },
+        { once: true }
+    );
+
 }
 
-/* If music was already started on the Home page,
-   try to continue it automatically */
+
 if (musicStarted === "true") {
-    music.play().catch(() => {
-        /*
-        The browser may still block autoplay.
-        This normally only happens if the user has not
-        interacted with the website yet.
-        */
-    });
+
+    music.play().catch(() => {});
+
 }
 
-/* Save the current position */
-music.addEventListener("timeupdate", function () {
-    localStorage.setItem(
-        "chateauMusicTime",
-        music.currentTime
-    );
-});
 
-/* Save position before leaving */
-window.addEventListener("beforeunload", function () {
-    localStorage.setItem(
-        "chateauMusicTime",
-        music.currentTime
-    );
-});
+music.addEventListener(
+    "timeupdate",
+    function () {
+
+        localStorage.setItem(
+            "chateauMusicTime",
+            music.currentTime
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "beforeunload",
+    function () {
+
+        localStorage.setItem(
+            "chateauMusicTime",
+            music.currentTime
+        );
+
+    }
+);
+
 </script>
 
 </body>
 </html>
+```
